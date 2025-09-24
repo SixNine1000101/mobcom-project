@@ -1,41 +1,23 @@
 import { Routes } from '@angular/router';
+import { OnboardingPage } from './pages/onboarding/onboarding.page';
+import { LoginPage } from './pages/auth/login/login.page';
+import { SignupPage } from './pages/auth/signup/signup.page';
+import { FeedPage } from './pages/feed/feed.page'; // Removed because lazy loading is used below
+import { MessagesPage } from './pages/messages/messages.page';
+import { ForumPage } from './pages/forum/forum.page';
+import { ProfilePage } from './pages/profile/profile.page';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'onboarding', pathMatch: 'full' },
-
-  {
-    path: 'onboarding',
-    loadComponent: () =>
-      import('./pages/onboarding/welcome.page').then(m => m.WelcomePage),
-  },
-  {
-    path: 'login',
-    loadComponent: () =>
-      import('./pages/auth/login.page').then(m => m.LoginPage),
-  },
-  {
-    path: 'signup',
-    loadComponent: () =>
-      import('./pages/auth/signup.page').then(m => m.SignupPage),
-  },
+  { path: '', component: OnboardingPage },
+  { path: 'login', component: LoginPage },
+  { path: 'signup', component: SignupPage },
+  // { path: 'feed', component: FeedPage },
+  { path: 'messages', component: MessagesPage },
+  { path: 'forum', component: ForumPage },
+  { path: 'profile', component: ProfilePage },
   {
     path: 'feed',
-    loadComponent: () =>
-      import('./pages/feed/feed.page').then(m => m.FeedPage),
+    loadComponent: () => import('./pages/feed/feed.page').then( m => m.FeedPage)
   },
-  // {
-  //   path: 'messages',
-  //   loadComponent: () =>
-  //     import('./pages/messages/chat-list.page').then(m => m.ChatListPage),
-  // },
-  // {
-  //   path: 'forum',
-  //   loadComponent: () =>
-  //     import('./pages/forum/forum-categories.page').then(m => m.ForumCategoriesPage),
-  // },
-  // {
-  //   path: 'profile',
-  //   loadComponent: () =>
-  //     import('./pages/profile/profile.page').then(m => m.ProfilePage),
-  // },
+  { path: '**', redirectTo: '' }
 ];

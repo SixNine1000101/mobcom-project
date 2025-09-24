@@ -1,26 +1,38 @@
-import { Component } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardContent, IonCardHeader } from '@ionic/angular/standalone';
+import { RouterModule } from '@angular/router';
+import { IonInput } from '@ionic/angular/standalone';
+import { IonButton } from '@ionic/angular/standalone';
 import { PostCardComponent } from '../../components/post-card/post-card.component';
 
 @Component({
   selector: 'app-feed',
+  templateUrl: './feed.page.html',
+  styleUrls: ['./feed.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, PostCardComponent],
-  template: `
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>News Feed</ion-title>
-      </ion-toolbar>
-    </ion-header>
-
-    <ion-content class="ion-padding">
-      <app-post-card *ngFor="let post of posts" [post]="post"></app-post-card>
-    </ion-content>
-  `
+  imports: [IonCardHeader, IonCardContent, IonCard, 
+    CommonModule,
+    FormsModule,
+    RouterModule,
+    IonButton,
+    IonInput,
+    IonContent,
+    IonHeader,
+    IonTitle,
+    IonToolbar,
+    PostCardComponent,
+  ]
 })
-export class FeedPage {
-  posts = [
-    { author: 'mama mo', text: 'f  ferjwbefjbew!', date: new Date(), likes: 0 } // teporary post bruh
+export class FeedPage implements OnInit {
+   posts = [
+    { author: 'University', text: 'Walang pasok (sana)', date: new Date(), likes: 0 },
+    { author: 'Dexter', text: 'First working feed post!', date: new Date(), likes: 3 }
   ];
+  constructor() { }
+
+  ngOnInit() {
+  }
+
 }

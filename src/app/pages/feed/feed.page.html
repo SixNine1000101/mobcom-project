@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>News Feed</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="ion-padding">
+    <app-post-card *ngFor="let post of posts" [post]="post"></app-post-card>
+  </div>
+
+  <ion-button expand="block" routerLink="/messages">Go to Messages</ion-button>
+  <ion-button expand="block" routerLink="/forum">Go to Forum</ion-button>
+  <ion-button expand="block" routerLink="/profile">Go to Profile</ion-button>
+</ion-content>

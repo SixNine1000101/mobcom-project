@@ -12,6 +12,17 @@ $RECYCLE.BIN/
 *.log
 log.txt
 
+# Angular / Ionic build files
+node_modules/
+platforms/
+plugins/
+www/
+dist/
+.build/
+.idea/
+.vscode/
+.DS_Store
+
 
 /.sourcemaps
 /.versions
