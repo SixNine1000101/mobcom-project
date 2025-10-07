@@ -1,21 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton } from '@ionic/angular/standalone';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { IonContent } from "@ionic/angular/standalone";
 
 @Component({
   selector: 'app-onboarding',
   templateUrl: './onboarding.page.html',
   styleUrls: ['./onboarding.page.scss'],
   standalone: true,
-  imports: [IonButton, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, RouterModule]
+  imports: [IonContent, CommonModule, FormsModule, RouterModule],
 })
 export class OnboardingPage implements OnInit {
+  currentSlide = 0;
 
-  constructor() { }
+  constructor(private router: Router) {}
 
-  ngOnInit() {
+  nextSlide() {
+    if (this.currentSlide < 2) {
+      this.currentSlide++;
+    } else {
+      this.router.navigate(['/landing']);
+    }
   }
 
+  ngOnInit() {}
 }

@@ -6,18 +6,29 @@ import { FeedPage } from './pages/feed/feed.page'; // Removed because lazy loadi
 import { MessagesPage } from './pages/messages/messages.page';
 import { ForumPage } from './pages/forum/forum.page';
 import { ProfilePage } from './pages/profile/profile.page';
+import { LandingPage } from './pages/landing/landing.page';
+import { ExplorePage } from './pages/explore/explore.page';
+import { NotificationPage } from './pages/notification/notification.page';
 
 export const routes: Routes = [
-  { path: '', component: OnboardingPage },
+  { path: '', component: LandingPage },
+  { path: 'onboarding', component: OnboardingPage },
   { path: 'login', component: LoginPage },
   { path: 'signup', component: SignupPage },
   // { path: 'feed', component: FeedPage },
   { path: 'messages', component: MessagesPage },
+  { path: 'explore', component: ExplorePage },
   { path: 'forum', component: ForumPage },
   { path: 'profile', component: ProfilePage },
+  { path: 'notification', component: NotificationPage },
   {
     path: 'feed',
     loadComponent: () => import('./pages/feed/feed.page').then( m => m.FeedPage)
   },
-  { path: '**', redirectTo: '' }
+  { path: 'landing', loadComponent: () => import('./pages/landing/landing.page').then( m => m.LandingPage) },
+  { path: '**', redirectTo: 'landing' },
+  // {
+  //   path: 'tabs',
+  //   loadComponent: () => import('./tabs/tabs.page').then( m => m.TabsPage)
+  // }
 ];

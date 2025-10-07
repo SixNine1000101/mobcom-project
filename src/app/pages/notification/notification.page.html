@@ -1,0 +1,43 @@
+<!-- header -->
+<ion-content [fullscreen]="true" class="bg-white space-y-3">
+  <!-- header -->
+  <div class="flex items-center space-x-4 p-4">
+    <button routerLink="/feed" class="text-2xl">←</button>
+    <h1 class="font-bold text-xl m-0">Notifications</h1>
+  </div>
+  <!-- All | Mentions | Request -->
+  <div class="flex justify-around border-b border-gray-300">
+    <button
+      class="flex-1 py-2 text-center font-semibold border-b-2 border-transparent"
+      [class.border-red-800]="selectedFilter === 'all'"
+      (click)="selectedFilter = 'all'"
+    >
+      All
+    </button>
+    <button
+      class="flex-1 py-2 text-center font-semibold"
+      [class.border-b-2]="selectedFilter === 'mentions'"
+      [class.border-red-800]="selectedFilter === 'mentions'"
+      (click)="selectedFilter = 'mentions'"
+    >
+      Mentions
+    </button>
+    <button
+      class="flex-1 py-2 text-center font-semibold"
+      [class.border-b-2]="selectedFilter === 'requests'"
+      [class.border-red-800]="selectedFilter === 'requests'"
+      (click)="selectedFilter = 'requests'"
+    >
+      Requests
+    </button>
+  </div>
+  <!-- No notifications -->
+  <div
+    class="flex flex-col items-center justify-center h-full text-center p-8 space-y-4"
+  >
+    <h2 class="text-2xl font-bold">No Notifications</h2>
+    <p class="text-gray-500">
+      You're all caught up! Check back later for new notifications.
+    </p>
+  </div>
+</ion-content>

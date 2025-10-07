@@ -1,0 +1,49 @@
+<ion-content [fullscreen]="true" class="bg-white">
+  <div
+    class="relative overflow-hidden h-full w-full flex flex-col justify-between py-10 px-8"
+  >
+    <!-- App logo -->
+    <div class="flex flex-col items-center space-y-1">
+      <img
+        src="../assets/icon/OffCord.png"
+        alt=""
+        class="w-32 h-32 mx-auto mb-4 mt-10"
+      />
+      <!-- App name -->
+      <h1 class="text-6xl text-red-800 font-extrabold text-center">OffCord</h1>
+      <h3 class="w-full text-orange-500 text-center">Campus Offline Chat</h3>
+    </div>
+
+    <!-- login button -->
+    <div>
+      <div class="w-full space-y-1">
+        <button
+          routerLink="/login"
+          class="bg-red-800 text-white font-bold py-3 rounded-full w-full"
+        >
+          Log In
+        </button>
+        <div class="flex items-center space-x-2 text-gray-400">
+          <hr class="border-t border-gray-300 w-full" />
+          <p>or</p>
+          <hr class="border-t border-gray-300 w-full" />
+        </div>
+        <button
+          routerLink="/signup"
+          class="border border-red-800 border-solid text-red-800 font-bold py-3 rounded-full w-full"
+        >
+          Sign Up
+        </button>
+      </div>
+      <!-- terms and conditions -->
+
+      <p class="text-gray-500 text-center text-xs mt-12">
+        By continuing, you agree to our Terms of Service and Privacy Policy.
+      </p>
+
+      <!-- login button -->
+      <!-- signup button -->
+      <!-- terms and conditions -->
+    </div>
+  </div>
+</ion-content>

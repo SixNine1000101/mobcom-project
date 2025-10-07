@@ -1,16 +1,99 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Onboarding</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true" class="bg-white">
+  <div class="relative overflow-hidden h-full w-full">
+    <!-- Slides container -->
+    <div
+      class="flex transition-transform duration-500 ease-in-out h-full"
+      [style.transform]="'translateX(-' + currentSlide * 100 + '%)'"
+    >
+      <!-- Slide 1 -->
+      <div
+        class="min-w-full flex flex-col h-full items-center justify-end text-center p-8 pb-16"
+      >
+        <img src="assets/slide1.svg" alt="" class="w-60 mb-6" />
+        <h1 class="text-2xl font-extrabold mb-3">
+          Anytime, Anywhere on Campus.
+        </h1>
+        <p class="text-gray-500 mb-8">
+          Join your university's very own social space! Chat, share, and engage
+          with classmates anytime—no internet required, just campus Wi-Fi.
+        </p>
+        <div class="w-full space-y-3">
+          <button
+            (click)="nextSlide()"
+            class="bg-black text-white font-bold py-3 rounded-full w-full"
+          >
+            Continue
+          </button>
+          <button
+            routerLink="/login"
+            class="border border-gray-400 text-gray-400 font-bold py-3 rounded-full w-full"
+          >
+            Skip
+          </button>
+        </div>
+      </div>
 
-<ion-content [fullscreen]="true">
-  <!-- <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">onboarding</ion-title>
-    </ion-toolbar>
-  </ion-header> -->
-  <h1>Welcome hoe</h1>
-  <p>A campus-only social app for announcements, chats, and forums.</p>
-  <ion-button expand="block" routerLink="/login">Get Started</ion-button>
+      <!-- Slide 2 -->
+      <div
+        class="min-w-full flex flex-col h-full items-center justify-end text-center p-8 pb-16"
+      >
+        <div class="flex-1 flex items-center justify-center">
+          <img src="../assets/onboarding/slide2.png" alt="" class="max-h-[45vh] w-auto object-contain" />
+        </div>
+
+        <h1 class="text-2xl font-extrabold mb-3">
+          Stay Updated, <br />Stay Connected
+        </h1>
+        <p class="text-gray-500 mb-8">
+          Catch up on announcements, join group chats, and keep up with the buzz
+          around campus events—all in one place.
+        </p>
+        <div class="w-full space-y-3">
+          <button
+            (click)="nextSlide()"
+            class="bg-black text-white font-bold py-3 rounded-full w-full"
+          >
+            Continue
+          </button>
+          <button
+            routerLink="/login"
+            class="border border-gray-400 text-gray-400 font-bold py-3 rounded w-full"
+          >
+            Skip
+          </button>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div
+        class="min-w-full flex flex-col h-full items-center justify-end text-center p-8 pb-28"
+      >
+        <img src="assets/slide3.svg" alt="" class="w-60 mb-6" />
+        <h1 class="text-2xl font-extrabold mb-3">
+          Your Campus. <br />
+          Your Community.
+        </h1>
+        <p class="text-gray-500 mb-8">
+          Be part of the conversation. Create groups, share ideas, and connect
+          with fellow students—anytime, anywhere on campus.
+        </p>
+        <button
+          routerLink="/signup"
+          class="bg-black text-white font-bold py-3 rounded-full w-full"
+        >
+          Get Started
+        </button>
+      </div>
+    </div>
+
+    <!-- Slide indicators -->
+    <div class="absolute bottom-8 left-0 right-0 flex justify-center space-x-2">
+      <div
+        *ngFor="let i of [0, 1, 2]"
+        class="h-2 w-2 rounded-full"
+        [ngClass]="i === currentSlide ? 'bg-black' : 'bg-gray-300'"
+        (click)="currentSlide = i"
+      ></div>
+    </div>
+  </div>
 </ion-content>

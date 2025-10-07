@@ -1,16 +1,38 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Messages</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
   <!-- <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">messages</ion-title>
     </ion-toolbar>
   </ion-header> -->
-  <ion-content class="ion-padding">
-    <p>Chats will appear here.</p>
-  </ion-content>
+  <!-- head -->
+  <div class="w-full m-auto p-4 space-y-3">
+    <div class="flex flew-row space-x-3">
+      <!-- avatar -->
+      <!-- img is a placeholder -->
+      <img src="../assets/shapes.svg" alt="" class="w-10 h-10 rounded-full" />
+      <!-- Search Field -->
+      <input
+        id="query"
+        type="search"
+        placeholder="Search"
+        class="w-full bg-gray-100 text-black rounded-full px-4"
+      />
+      <button class="text-2xl" routerLink="/notification">🔔</button>
+    </div>
+
+    <!-- body -->
+    <div>
+      <div class="flex flex-row">
+        <!-- avatar -->
+         <img src="../assets/shapes.svg" alt="" class="w-14 h-14 rounded-full" />
+         <div class="">
+          <h3 class="m-0">
+            Name
+          </h3>
+          <p>message snippet</p>
+         </div>
+      </div>
+    </div>
+  </div>
+  <app-navbar></app-navbar>
 </ion-content>

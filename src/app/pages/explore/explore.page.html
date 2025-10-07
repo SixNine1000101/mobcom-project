@@ -1,0 +1,42 @@
+<!-- Explore Page -->
+<ion-content [fullscreen]="true" class="bg-white">
+  <div class="w-full m-auto p-4 space-y-3">
+    <!-- head -->
+    <div class="flex flew-row space-x-3">
+      <!-- avatar -->
+      <!-- img is a placeholder -->
+      <img src="../assets/shapes.svg" alt="" class="w-12 h-12 rounded-full" />
+      <!-- Search Field -->
+      <input
+        id="query"
+        type="search"
+        placeholder="Search"
+        class="w-full bg-gray-100 text-black rounded-full px-4"
+      />
+    </div>
+
+    <!-- Discovery Content -->
+    <div>
+      <app-hero-banner
+        image="../assets/shapes.svg"
+        title="Red Eagles Championship"
+        subtitle="See you at the court!"
+      ></app-hero-banner>
+      <!-- news -->
+      <div class="p-3">
+        <h2 class="text-2xl font-extrabold mb-3">Today's News</h2>
+        <h3 class="text-base font-extrabold m-0">
+          Game On! COEA x CICS bring the heat to Intramurals 2025
+        </h3>
+      </div>
+      <hr class="my-1 border-t border-gray-300 w-full">
+      <!-- Topics -->
+      <div class="p-3">
+        <h2 class="text-2xl font-extrabold mb-3">Trending Topics</h2>
+        <h3 class="text-base font-extrabold m-0">#SigiRush</h3>
+        <h3 class="text-base font-extrabold m-0">#SinongUnangMataposEtoOAko</h3>
+      </div>
+    </div>
+  </div>
+  <app-navbar></app-navbar>
+</ion-content>

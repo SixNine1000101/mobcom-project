@@ -1,18 +1,117 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Signup</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <!-- <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">signup</ion-title>
-    </ion-toolbar>
-  </ion-header> -->
-  <ion-content class="ion-padding">
-  <ion-input placeholder="Name"></ion-input>
-  <ion-input placeholder="Password" type="password"></ion-input>
-  <ion-input placeholder="Confirm Password" type="password"></ion-input>
-  <ion-button expand="block" routerLink="/feed">Register</ion-button>
+  <div class="relative overflow-hidden h-full w-full">
+    <!-- Slides container -->
+    <div
+      class="flex transition-transform duration-500 ease-in-out h-full"
+      [style.transform]="'translateX(-' + currentStep * 100 + '%)'"
+    >
+      <!-- Step 1 -->
+      <div class="min-w-full flex flex-col h-full justify-between py-16 px-8">
+        <!-- Head -->
+        <div>
+          <h1 class="text-4xl font-extrabold mb-3">
+            Be part of <br />
+            the Community!
+          </h1>
+          <p class="text-gray-500">
+            Join the only social app that works even when your signal doesn’t.
+          </p>
+        </div>
+
+        <!-- Form -->
+        <form class="space-y-4">
+          <input
+            type="text"
+            placeholder="First Name"
+            class="w-full p-3 border-2 rounded-2xl bg-transparent border-2 border-gray"
+          />
+          <input
+            type="text"
+            placeholder="Last Name"
+            class="w-full p-3 border-2 rounded-2xl bg-transparent border-2 border-gray"
+          />
+          <input
+            id="birthday"
+            type="text"
+            placeholder="Birthday"
+            onfocus="this.type='date'"
+            class="w-full p-3 border-2 rounded-2xl bg-transparent border-2 border-gray"
+          />
+
+          <button
+            type="button"
+            (click)="currentStep = 1"
+            class="rounded-full text-white bg-red-800 p-3 w-full"
+          >
+            Next
+          </button>
+        </form>
+
+        <!-- Footer -->
+        <div class="flex items-center justify-center space-x-2 mt-6">
+          <p>Already have an account?</p>
+          <button routerLink="/login" class="font-semibold">Log in</button>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="min-w-full flex flex-col h-full justify-between py-16 px-8">
+        <!-- Head -->
+        <div>
+          <h1 class="text-4xl font-extrabold mb-3">Secure Your Account</h1>
+          <p class="text-gray-500">Just a few more details and you’re in.</p>
+        </div>
+
+        <!-- Form -->
+        <form class="space-y-4">
+          <input
+            type="text"
+            placeholder="Username"
+            class="w-full p-3 border-2 rounded-2xl bg-transparent border-2 border-gray"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            class="w-full p-3 border-2 rounded-2xl bg-transparent border-2 border-gray"
+          />
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            class="w-full p-3 border-2 rounded-2xl bg-transparent border-2 border-gray"
+          />
+
+          <button
+            type="submit"
+            routerLink="/feed"
+            class="w-full rounded-full bg-red-800 text-white py-3"
+          >
+            Create Account
+          </button>
+          <button
+            type="button"
+            (click)="currentStep = 0"
+            class="w-full rounded-full border-2 border-gray-300 border-solid py-3"
+          >
+            Back
+          </button>
+        </form>
+
+        <!-- Footer -->
+        <div class="flex items-center justify-center space-x-2 mt-6">
+          <p>Already have an account?</p>
+          <button routerLink="/login" class="font-semibold">Log in</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step indicators -->
+    <div class="absolute bottom-8 left-0 right-0 flex justify-center space-x-2">
+      <div
+        *ngFor="let i of [0,1]"
+        class="h-2 w-2 rounded-full cursor-pointer"
+        [ngClass]="i === currentStep ? 'bg-red-800' : 'bg-gray-300'"
+        (click)="currentStep = i"
+      ></div>
+    </div>
+  </div>
 </ion-content>

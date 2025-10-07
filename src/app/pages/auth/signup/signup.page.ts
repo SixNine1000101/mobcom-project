@@ -9,10 +9,11 @@ import { RouterModule } from '@angular/router';
   templateUrl: './signup.page.html',
   styleUrls: ['./signup.page.scss'],
   standalone: true,
-  imports: [IonButton, IonInput, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, RouterModule]
+  imports: [IonContent, CommonModule, FormsModule, RouterModule]
 })
 export class SignupPage implements OnInit {
 
+  currentStep = 0;
   constructor() { }
 
   ngOnInit() {

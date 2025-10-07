@@ -1,0 +1,13 @@
+<div class="relative w-full h-64 rounded-lg overflow-hidden">
+  <!-- Background image -->
+  <img [src]="image" alt="banner" class="w-full h-full object-cover" />
+
+  <!-- Overlay gradient for readability -->
+  <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+
+  <!-- Text bottom-left -->
+  <div class="absolute bottom-4 left-4 text-white">
+    <h2 class="text-xl font-bold m-0">{{ title }}</h2>
+    <p *ngIf="subtitle" class="text-sm opacity-80">{{ subtitle }}</p>
+  </div>
+</div>
